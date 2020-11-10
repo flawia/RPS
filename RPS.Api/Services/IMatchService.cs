@@ -9,6 +9,6 @@ namespace RPS.Api.Services
         void AddGame();
         Move BotsMove();
         Game GameResult(Outcome yourOutcome, Move opponentMove);
-        string MatchResult();
+        string MatchResult(Outcome yourOutcome);
     }
 }

@@ -121,13 +121,13 @@ namespace RPS.Api.Services
             return games[currentGameIndex - 1];
         }
 
-        public string MatchResult()
+        public string MatchResult(Outcome yourOutcome)
         {
             var botWins = games.Where(x => x.botResult == Outcome.Win).Count();
             var playerWins = games.Where(x => x.playerResult == Outcome.Win).Count();
             var draws = games.Where(x => x.botResult == Outcome.Draw).Count();
 
-            return $"Match statistics:{Environment.NewLine} Number of games played: {games.Count()}{Environment.NewLine} Bot: {botWins} wins{Environment.NewLine} Human: {playerWins} wins{Environment.NewLine} Draw(s): {draws}";
+            return $"Game result: {yourOutcome.ToString()}{Environment.NewLine}Match statistics:{Environment.NewLine} Number of games played: {games.Count()}{Environment.NewLine} Bot: {botWins} wins{Environment.NewLine} Human: {playerWins} wins{Environment.NewLine} Draw(s): {draws}";
         }
     }
 }

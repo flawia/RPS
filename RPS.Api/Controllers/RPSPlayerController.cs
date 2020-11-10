@@ -39,7 +39,7 @@ namespace RPS.Api.Controllers
         [HttpGet("Result/{yourOutcome}")]
         public string Result(Outcome yourOutcome)
         {
-            var matchResult = match.MatchResult();
+            var matchResult = match.MatchResult(yourOutcome);
             return matchResult;
         }
     }
