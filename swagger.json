@@ -1,0 +1,127 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: Rock Paper Scissors Player
+paths:
+  /RPSPlayer:
+    get:
+      tags:
+        - RPSPlayer
+      operationId: Get
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+  '/RPSPlayer/GetReady/{numGames}/{numDynamite}':
+    get:
+      tags:
+        - RPSPlayer
+      operationId: GetReady
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: numGames
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: numDynamite
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+  /RPSPlayer/MakeMove:
+    get:
+      tags:
+        - RPSPlayer
+      operationId: MakeMove
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            format: int32
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+            type: integer
+  '/RPSPlayer/GameResult/{yourOutcome}/{opponentMove}':
+    get:
+      tags:
+        - RPSPlayer
+      operationId: GameResult
+      consumes: []
+      produces: []
+      parameters:
+        - name: yourOutcome
+          in: path
+          required: true
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+        - name: opponentMove
+          in: path
+          required: true
+          type: integer
+          format: int32
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+      responses:
+        '200':
+          description: Success
+  '/RPSPlayer/Result/{yourOutcome}':
+    get:
+      tags:
+        - RPSPlayer
+      operationId: Result
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: yourOutcome
+          in: path
+          required: true
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+definitions: {}
